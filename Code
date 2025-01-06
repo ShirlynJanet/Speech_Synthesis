@@ -1,0 +1,26 @@
+#SPEECH SYNTHESIS
+import pyttsx3
+
+def text_to_speech(text):
+    
+    engine = pyttsx3.init()
+
+    
+    rate = engine.getProperty('rate')  
+    engine.setProperty('rate', 150)  
+    volume = engine.getProperty('volume')  
+    engine.setProperty('volume', 1.0)      
+
+    voices = engine.getProperty('voices')  
+    engine.setProperty('voice', voices[0].id)  
+
+    
+    engine.say(text)
+
+    
+    engine.runAndWait()
+
+if __name__ == "__main__":
+    
+    user_input = input("Enter text to convert to speech: ")
+    text_to_speech(user_input)
